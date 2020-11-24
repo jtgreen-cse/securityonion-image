@@ -1,7 +1,7 @@
 #!/bin/bash
 
 rm -f /tmp/garbage_file
-while ! wget -O /tmp/garbage_file ${ELASTICSEARCH_HOST}:9500 2>/dev/null
+while ! wget -O /tmp/garbage_file --no-check-certificate https://${ELASTICSEARCH_HOST}:9300 2>/dev/null
 do
 	echo "Waiting for Elasticsearch..."
 	rm -f /tmp/garbage_file
